@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANCRE Concept & Finition — Jointeur · Plaquiste · Peintre · Vaucluse (84)</title>
+<meta name="description" content="ANCRE Concept & Finition — Adrien Marine, artisan jointeur, plaquiste et peintre basé à Apt (Vaucluse 84). Jointement, plaquisterie, peinture et isolation. Intervention en Vaucluse, partout en France et en Europe. Devis gratuit : 07 50 62 99 01.">
+<meta name="author" content="ANCRE Concept & Finition">
+<meta property="og:title" content="ANCRE Concept & Finition — Jointeur · Plaquiste · Peintre · Vaucluse">
+<meta property="og:description" content="Jointement, plaquisterie, peinture. Artisan qualifié basé en Vaucluse, intervenant sur toute la France et en Europe.">
+<meta property="og:type" content="website">
+
+<!-- ===== GOOGLE FONTS ===== -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;500;600&display=swap');
+
+/* ===== TOKENS / VARIABLES ===== */
+:root{
+  --sable:   #F5EFE6; /* fond principal — beige sable Instagram */
+  --ancre:   #1A1714; /* accent signature — noir ancre */
+  --pierre:  #EDE4D8; /* sections alternées — pierre provençale */
+  --rouille: #B85C38; /* accent chaud — rouille / terracotta */
+  --sable-2: #8C7B6B; /* texte secondaire — sable foncé neutre */
+  --ciment:  #D4C9BC; /* bordures et séparateurs */
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Source Sans 3', system-ui, -apple-system, sans-serif;
+
+  --maxw: 1180px;
+  --radius: 4px;
+  --radius-lg: 6px;
+
+  /* Motif ancre SVG répété en filigrane (opacity ~0.03) */
+  --motif-ancre: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%231A1714' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round' opacity='0.03' transform='translate(40 35) rotate(10 20 25)'%3E%3Ccircle cx='20' cy='6' r='5'/%3E%3Cline x1='20' y1='11' x2='20' y2='46'/%3E%3Cline x1='8' y1='22' x2='32' y2='22'/%3E%3Cpath d='M6 38 Q6 50 20 50 Q34 50 34 38'/%3E%3Cline x1='4' y1='40' x2='8' y2='37'/%3E%3Cline x1='36' y1='40' x2='32' y2='37'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ===== RESET ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-body);
+  font-weight:400;
+  color:var(--ancre);
+  background:var(--sable);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+ul{list-style:none}
+input,select,textarea{font-family:inherit;font-size:1rem}
+
+/* ===== HELPERS ===== */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+section{padding:84px 0}
+.eyebrow{
+  font-family:var(--font-body);
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.15em;
+  color:var(--rouille);
+  font-size:13px;
+  margin-bottom:14px;
+}
+.h2{
+  font-family:var(--font-display);
+  font-weight:700;
+  color:var(--ancre);
+  font-size:clamp(28px,4.4vw,44px);
+  line-height:1.12;
+  letter-spacing:0.01em;
+}
+.lead{
+  color:var(--sable-2);
+  font-size:17px;
+  max-width:620px;
+  margin-top:18px;
+}
+
+/* ===== MOTIF ANCRE (filigrane) ===== */
+.motif{
+  background-image:var(--motif-ancre);
+  background-repeat:repeat;
+  background-size:120px 120px;
+}
+
+/* ===== BUTTONS ===== */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px 32px;border-radius:var(--radius);
+  font-family:var(--font-body);font-weight:600;font-size:15px;
+  transition:transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
+  line-height:1;
+}
+.btn-dark{background:var(--ancre);color:var(--sable)}
+.btn-dark:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(26,23,20,.22)}
+.btn-outline{background:transparent;border:1.5px solid var(--ancre);color:var(--ancre)}
+.btn-outline:hover{background:var(--ancre);color:var(--sable)}
+.btn-rouille{background:var(--rouille);color:var(--sable)}
+.btn-rouille:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(184,92,56,.3)}
+
+/* ===== BANDEAU ===== */
+.bandeau{
+  position:fixed;top:0;left:0;width:100%;height:36px;z-index:1000;
+  background:var(--ancre);color:var(--sable);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:600;text-align:center;padding:0 12px;
+}
+.bandeau span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bandeau a{color:var(--sable);text-decoration:none}
+.bandeau a:hover{color:var(--rouille)}
+
+/* ===== HEADER ===== */
+.header{
+  position:fixed;top:36px;left:0;width:100%;z-index:999;
+  background:transparent;
+  transition:background .3s ease, box-shadow .3s ease, backdrop-filter .3s ease;
+}
+.header.scrolled{
+  background:rgba(245,239,230,.97);
+  backdrop-filter:blur(10px);
+  box-shadow:0 1px 0 var(--ciment);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .logo-svg{width:34px;height:42px;flex-shrink:0}
+.brand-text{line-height:1}
+.brand-name{
+  font-family:var(--font-display);font-weight:900;font-size:21px;
+  color:var(--ancre);text-transform:uppercase;letter-spacing:0.05em;
+}
+.brand-sub{font-size:12px;color:var(--sable-2);font-weight:400;margin-top:2px}
+
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{font-weight:500;font-size:13.5px;color:var(--sable-2);transition:color .2s ease}
+.nav a:hover,.nav a.active{color:var(--rouille)}
+.nav-cta{
+  background:var(--ancre);color:var(--sable);
+  padding:10px 18px;border-radius:var(--radius);
+  font-weight:600;font-size:13.5px;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(26,23,20,.22)}
+
+.burger{display:none;flex-direction:column;gap:5px;padding:8px}
+.burger span{width:24px;height:2px;background:var(--ancre);transition:.3s ease}
+
+/* Overlay mobile */
+.mobile-nav{
+  position:fixed;inset:0;z-index:1001;background:var(--sable);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;
+  transform:translateX(100%);transition:transform .35s ease;
+}
+.mobile-nav.open{transform:translateX(0)}
+.mobile-nav a{font-family:var(--font-display);font-weight:700;font-size:28px;color:var(--ancre)}
+.mobile-nav a:hover{color:var(--rouille)}
+.mobile-nav .nav-cta{font-family:var(--font-body);font-size:16px;padding:14px 26px;color:var(--sable)}
+.mobile-close{position:absolute;top:24px;right:24px;font-size:34px;color:var(--ancre);line-height:1}
+
+/* ===== HERO ===== */
+.hero{
+  padding-top:172px;padding-bottom:96px;
+  background:var(--sable);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%231A1714' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round' opacity='0.025' transform='translate(40 35) rotate(10 20 25)'%3E%3Ccircle cx='20' cy='6' r='5'/%3E%3Cline x1='20' y1='11' x2='20' y2='46'/%3E%3Cline x1='8' y1='22' x2='32' y2='22'/%3E%3Cpath d='M6 38 Q6 50 20 50 Q34 50 34 38'/%3E%3Cline x1='4' y1='40' x2='8' y2='37'/%3E%3Cline x1='36' y1='40' x2='32' y2='37'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat:repeat;background-size:120px 120px;
+}
+.hero h1{
+  font-family:var(--font-display);font-weight:900;color:var(--ancre);
+  font-size:clamp(40px,7vw,76px);line-height:1.05;letter-spacing:0.005em;
+  margin-bottom:22px;
+}
+.hero h1 .accent{color:var(--rouille)}
+.hero .sub{color:var(--sable-2);font-size:18px;max-width:480px;margin-bottom:32px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:34px}
+.badges{display:flex;flex-wrap:wrap;gap:10px}
+.badge{
+  background:var(--pierre);color:var(--sable-2);
+  padding:8px 16px;border-radius:var(--radius);
+  font-size:14px;font-weight:500;
+}
+
+/* ===== METIERS ===== */
+.metiers{background:var(--pierre)}
+.cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:46px}
+.metier-card{
+  position:relative;background:var(--sable);border-radius:var(--radius-lg);
+  border-top:3px solid var(--ancre);padding:34px 28px 30px;overflow:hidden;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.metier-card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(140,123,107,.22)}
+.metier-num{
+  position:absolute;top:14px;right:22px;
+  font-family:var(--font-display);font-weight:900;font-size:64px;
+  color:var(--rouille);opacity:.25;line-height:1;
+}
+.metier-icon{width:44px;height:44px;margin-bottom:20px}
+.metier-card h3{font-family:var(--font-display);font-weight:700;font-size:24px;color:var(--ancre);margin-bottom:12px}
+.metier-card p{color:var(--sable-2);font-size:15.5px}
+
+/* ===== FRANCE & EUROPE ===== */
+.france{background:var(--ancre);color:var(--sable)}
+.france .eyebrow{color:var(--rouille)}
+.france h2{font-family:var(--font-display);font-weight:700;color:var(--sable);font-size:clamp(28px,4.4vw,44px);line-height:1.12}
+.france .intro{color:rgba(245,239,230,.8);line-height:1.8;max-width:760px;margin-top:20px;font-size:17px}
+.france-cols{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin:40px 0 36px}
+.france-col h4{font-size:18px;font-weight:600;color:var(--sable);margin-bottom:14px}
+.france-col .villes{display:flex;flex-wrap:wrap;gap:8px 0}
+.france-col .villes li{color:rgba(245,239,230,.85);font-size:15.5px;position:relative;padding-right:14px;margin-right:6px}
+.france-col .villes li:not(:last-child)::after{content:'·';position:absolute;right:0;color:var(--rouille)}
+.france-col p{color:rgba(245,239,230,.8);line-height:1.8;font-size:15.5px}
+
+/* ===== REALISATIONS ===== */
+.realisations{background:var(--sable)}
+.gallery{
+  display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:260px 260px;
+  gap:6px;margin-top:44px;
+}
+.gallery .item{
+  position:relative;background:var(--pierre);border-radius:var(--radius);
+  overflow:hidden;cursor:pointer;
+  display:flex;align-items:flex-end;
+}
+.gallery .item:first-child{grid-row:1/3}
+.gallery .ph-label{
+  position:relative;z-index:1;padding:16px;font-size:13.5px;font-weight:600;
+  color:var(--sable-2);transition:opacity .3s ease;
+}
+.gallery .overlay{
+  position:absolute;inset:0;background:rgba(26,23,20,.6);
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:18px;
+  opacity:0;transition:opacity .3s ease;
+}
+.gallery .overlay span{font-family:var(--font-display);font-style:italic;font-weight:700;color:var(--sable);font-size:18px}
+.gallery .item:hover .overlay{opacity:1}
+.gallery .item:hover .ph-label{opacity:0}
+.gallery-cta{margin-top:30px}
+.gallery-cta a{font-weight:600;color:var(--rouille);font-size:16px}
+.gallery-cta a:hover{text-decoration:underline}
+
+/* ===== PROCESSUS ===== */
+.processus{background:var(--pierre)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:46px}
+.step{position:relative;padding-top:8px}
+.step-num{
+  font-family:var(--font-display);font-weight:900;font-size:46px;color:var(--rouille);
+  line-height:1;margin-bottom:14px;display:inline-block;
+}
+.step h3{font-family:var(--font-display);font-weight:700;font-size:22px;color:var(--ancre);margin-bottom:10px}
+.step p{color:var(--sable-2);font-size:15.5px}
+
+/* ===== A PROPOS ===== */
+.apropos{background:var(--sable)}
+.apropos-grid{display:grid;grid-template-columns:60% 40%;gap:48px;align-items:center;margin-top:36px}
+.apropos-text p{color:var(--sable-2);line-height:1.9;font-size:16.5px;margin-bottom:18px}
+.apropos-values{
+  margin-top:26px;font-weight:600;color:var(--rouille);
+  text-transform:uppercase;letter-spacing:0.08em;font-size:14px;
+}
+.apropos-visual{display:flex;align-items:center;justify-content:center}
+.apropos-visual svg{width:190px;height:auto}
+
+/* ===== TEMOIGNAGES ===== */
+.temoignages{background:var(--pierre)}
+.avis{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.avis-card{
+  background:var(--sable);border-radius:var(--radius-lg);
+  border-left:3px solid var(--ancre);padding:28px 26px;
+}
+.avis-card .quote{color:var(--ancre);font-size:15.5px;line-height:1.7;margin-bottom:18px}
+.avis-card .author{font-weight:600;color:var(--sable-2);font-size:14px}
+.avis-card .stars{color:var(--rouille);font-size:15px;margin-top:6px;letter-spacing:2px}
+
+/* ===== CONTACT ===== */
+.contact{background:var(--ancre);color:var(--sable)}
+.contact .eyebrow{color:var(--rouille)}
+.contact h2{font-family:var(--font-display);font-weight:700;color:var(--sable);font-size:clamp(28px,4.4vw,44px)}
+.contact .sub{color:rgba(245,239,230,.6);font-size:17px;margin-top:12px}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:30px;margin-top:42px}
+
+.contact-info{
+  background:rgba(245,239,230,.06);
+  border:1px solid rgba(184,92,56,.3);
+  border-radius:var(--radius-lg);padding:28px;
+}
+.contact-info .tel-cta{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;background:var(--rouille);color:var(--sable);
+  padding:16px;border-radius:var(--radius);
+  font-family:var(--font-display);font-weight:700;font-size:22px;
+  transition:transform .2s ease, box-shadow .2s ease;margin-bottom:24px;
+}
+.contact-info .tel-cta:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(184,92,56,.35)}
+.contact-info ul li{
+  color:rgba(245,239,230,.85);font-size:15.5px;padding:9px 0;
+  border-bottom:1px solid rgba(245,239,230,.1);
+}
+.contact-info ul li:last-child{border-bottom:none}
+.contact-info ul li a:hover{color:var(--rouille)}
+
+.contact-form{display:grid;gap:14px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+  width:100%;
+  border:1px solid rgba(245,239,230,.2);border-radius:var(--radius);
+  background:transparent;padding:11px 14px;color:var(--sable);
+  transition:border-color .2s ease;
+}
+.contact-form select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23F5EFE6' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.contact-form select option{color:var(--ancre)}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{color:rgba(245,239,230,.4)}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{outline:none;border-color:var(--rouille)}
+.contact-form textarea{resize:vertical;min-height:110px}
+.contact-form .btn-rouille{width:100%;margin-top:4px}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--pierre);border-top:2px solid var(--ancre);padding:48px 0 30px}
+.footer-top{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.footer-top .logo-svg{width:30px;height:38px}
+.footer-name{font-family:var(--font-display);font-weight:900;font-size:22px;color:var(--ancre);text-transform:uppercase;letter-spacing:0.05em}
+.footer p{color:var(--sable-2);font-size:14.5px;margin-bottom:6px}
+.footer a{color:var(--sable-2)}
+.footer a:hover{color:var(--rouille)}
+.footer .footer-links{margin:12px 0;display:flex;flex-wrap:wrap;gap:6px 18px}
+.footer .footer-links a{font-weight:600;color:var(--ancre)}
+.footer .copy{margin-top:22px;padding-top:18px;border-top:1px solid var(--ciment);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+.footer .copy span{font-size:13px;color:var(--sable-2)}
+.footer .made-by{font-size:12px}
+
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.25,.46,.45,.94),transform .55s cubic-bezier(.25,.46,.45,.94)}
+.reveal.revealed{opacity:1;transform:translateY(0)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .apropos-grid{grid-template-columns:1fr;gap:34px}
+  .apropos-visual svg{width:150px}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  section{padding:64px 0}
+  .nav{display:none}
+  .header .nav-cta{display:none}
+  .burger{display:flex}
+  .cards-3,.steps,.avis{grid-template-columns:1fr}
+  .france-cols{grid-template-columns:1fr;gap:24px}
+  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
+  .gallery .item{height:190px}
+  .gallery .item:first-child{grid-row:auto;grid-column:1/3;height:230px}
+  .bandeau span{font-size:11.5px}
+}
+@media(max-width:480px){
+  .wrap{padding:0 18px}
+  .hero{padding-top:150px}
+  .hero-cta .btn{flex:1 1 100%}
+  .form-row{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr}
+  .gallery .item:first-child{grid-column:auto}
+}
+
+/* ===== REDUCED MOTION ===== */
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== BANDEAU ===== -->
+<div class="bandeau" role="region" aria-label="Coordonnées">
+  <span>⚓ ANCRE Concept &amp; Finition · <a href="tel:0750629901" aria-label="Appeler le 07 50 62 99 01">07 50 62 99 01</a> · Vaucluse · France &amp; Europe</span>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="wrap header-inner">
+    <a href="#hero" class="brand" aria-label="ANCRE Concept et Finition — accueil">
+      <svg class="logo-svg" viewBox="0 0 40 50" aria-hidden="true" fill="none" stroke="var(--ancre)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="20" cy="6" r="4.5"/>
+        <line x1="20" y1="10.5" x2="20" y2="44"/>
+        <line x1="9" y1="20" x2="31" y2="20"/>
+        <path d="M5 34 Q5 46 20 46 Q35 46 35 34"/>
+        <line x1="3" y1="36" x2="7.5" y2="32.5"/>
+        <line x1="37" y1="36" x2="32.5" y2="32.5"/>
+      </svg>
+      <span class="brand-text">
+        <span class="brand-name">ANCRE</span>
+        <span class="brand-sub">Concept &amp; Finition</span>
+      </span>
+    </a>
+
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#metiers">Métiers</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#apropos">À propos</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:0750629901" class="nav-cta" aria-label="Appeler le 07 50 62 99 01">📱 07 50 62 99 01</a>
+    </nav>
+
+    <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== MOBILE NAV ===== -->
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <button class="mobile-close" id="mobileClose" aria-label="Fermer le menu">×</button>
+  <a href="#metiers">Métiers</a>
+  <a href="#realisations">Réalisations</a>
+  <a href="#apropos">À propos</a>
+  <a href="#contact">Contact</a>
+  <a href="tel:0750629901" class="nav-cta" aria-label="Appeler le 07 50 62 99 01">📱 07 50 62 99 01</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <p class="eyebrow reveal" style="letter-spacing:0.18em">Jointeur · Plaquiste · Peintre · Vaucluse</p>
+    <h1 class="reveal">Ancré dans le métier,<br><span class="accent">partout en France.</span></h1>
+    <p class="sub reveal">Jointement, plaquisterie, peinture. Artisan qualifié basé en Vaucluse, intervenant sur toute la France et en Europe pour vos projets de finition.</p>
+    <div class="hero-cta reveal">
+      <a href="tel:0750629901" class="btn btn-dark" aria-label="Appeler maintenant le 07 50 62 99 01">📱 Appeler maintenant</a>
+      <a href="#contact" class="btn btn-outline">Demander un devis</a>
+    </div>
+    <div class="badges reveal">
+      <span class="badge">⚓ Vaucluse (84)</span>
+      <span class="badge">🗺️ France &amp; Europe</span>
+      <span class="badge">✓ Devis gratuit</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MÉTIERS ===== -->
+<section class="metiers motif" id="metiers">
+  <div class="wrap">
+    <p class="eyebrow reveal">Nos métiers</p>
+    <h2 class="h2 reveal">Trois métiers, une seule exigence.</h2>
+    <div class="cards-3">
+
+      <article class="metier-card reveal">
+        <span class="metier-num">01</span>
+        <svg class="metier-icon" viewBox="0 0 48 48" fill="none" stroke="var(--rouille)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 38 L30 14"/>
+          <path d="M28 12 l8 8 4-4 -8-8 z"/>
+          <path d="M6 38 l-2 6 6-2 z" fill="var(--rouille)"/>
+        </svg>
+        <h3>Jointement</h3>
+        <p>La spécialité cœur. Pose de bandes, enduit et lissage sur plaques. Finitions nettes, surfaces prêtes à peindre, travail propre.</p>
+      </article>
+
+      <article class="metier-card reveal">
+        <span class="metier-num">02</span>
+        <svg class="metier-icon" viewBox="0 0 48 48" fill="none" stroke="var(--rouille)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="8" y="8" width="32" height="32" rx="2"/>
+          <line x1="8" y1="24" x2="40" y2="24"/>
+          <line x1="24" y1="8" x2="24" y2="40"/>
+        </svg>
+        <h3>Plaquisterie</h3>
+        <p>Cloisons, plafonds, doublage et isolation. Gros et second œuvre, neuf et rénovation, résidentiel et chantiers d'envergure.</p>
+      </article>
+
+      <article class="metier-card reveal">
+        <span class="metier-num">03</span>
+        <svg class="metier-icon" viewBox="0 0 48 48" fill="none" stroke="var(--rouille)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="20" y="6" width="18" height="10" rx="2"/>
+          <path d="M20 11 H10 v8 h6"/>
+          <rect x="20" y="19" width="8" height="8" rx="1"/>
+          <line x1="24" y1="27" x2="24" y2="42"/>
+        </svg>
+        <h3>Peinture</h3>
+        <p>Intérieure et extérieure. Du mur préparé à la dernière couche, un seul artisan du début à la fin.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FRANCE & EUROPE ===== -->
+<section class="france" id="france">
+  <div class="wrap">
+    <p class="eyebrow reveal">Zone d'intervention</p>
+    <h2 class="reveal">Vaucluse d'abord.<br>France &amp; Europe si besoin.</h2>
+    <p class="intro reveal">Basé à Apt (84100), ANCRE Concept &amp; Finition intervient principalement en Vaucluse et dans les départements limitrophes. Pour les projets d'envergure — patrimoine, résidences secondaires, chantiers spéciaux — Adrien se déplace partout en France et en Europe.</p>
+    <div class="france-cols">
+      <div class="france-col reveal">
+        <h4>🏠 Vaucluse &amp; PACA</h4>
+        <ul class="villes">
+          <li>Apt</li><li>Pertuis</li><li>Manosque</li><li>Aix-en-Provence</li><li>Avignon</li><li>Carpentras</li>
+        </ul>
+      </div>
+      <div class="france-col reveal">
+        <h4>🗺️ France &amp; Europe</h4>
+        <p>Chantiers ponctuels, projets de restauration, interventions sur mesure. Contactez-nous pour tout déplacement hors région.</p>
+      </div>
+    </div>
+    <a href="#contact" class="btn btn-rouille reveal">Discuter d'un projet</a>
+  </div>
+</section>
+
+<!-- ===== RÉALISATIONS ===== -->
+<section class="realisations" id="realisations">
+  <div class="wrap">
+    <p class="eyebrow reveal">Réalisations</p>
+    <h2 class="h2 reveal">Des chantiers en Provence et ailleurs.</h2>
+    <div class="gallery reveal">
+      <div class="item"><span class="ph-label">Plaquisterie — Château Taulignan</span><div class="overlay"><span>Plaquisterie — Château Taulignan</span></div></div>
+      <div class="item"><span class="ph-label">Enduit projeté — appartement</span><div class="overlay"><span>Enduit projeté — appartement</span></div></div>
+      <div class="item"><span class="ph-label">Façade en pierre — Vaucluse</span><div class="overlay"><span>Façade en pierre — Vaucluse</span></div></div>
+      <div class="item"><span class="ph-label">Plafond caisson — finition</span><div class="overlay"><span>Plafond caisson — finition</span></div></div>
+      <div class="item"><span class="ph-label">Isolation + placo — neuf</span><div class="overlay"><span>Isolation + placo — neuf</span></div></div>
+    </div>
+    <p class="gallery-cta reveal">
+      <a href="https://www.instagram.com/ancre_renov" target="_blank" rel="noopener noreferrer" aria-label="Voir les chantiers sur Instagram, compte ancre_renov">Voir les chantiers sur Instagram @ancre_renov →</a>
+    </p>
+  </div>
+</section>
+
+<!-- ===== PROCESSUS ===== -->
+<section class="processus motif" id="processus">
+  <div class="wrap">
+    <p class="eyebrow reveal">Comment ça marche</p>
+    <h2 class="h2 reveal">Simple du premier appel au résultat.</h2>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="step-num">1</span>
+        <h3>Contact</h3>
+        <p>Appelez le 07 50 62 99 01 ou envoyez un message. On discute de votre projet et de vos contraintes de chantier.</p>
+      </div>
+      <div class="step reveal">
+        <span class="step-num">2</span>
+        <h3>Devis gratuit</h3>
+        <p>Déplacement sur site ou étude à distance. Chiffrage précis et délais réalistes.</p>
+      </div>
+      <div class="step reveal">
+        <span class="step-num">3</span>
+        <h3>Réalisation</h3>
+        <p>Chantier tenu, finitions soignées. Adrien s'engage sur le résultat comme sur les délais.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== À PROPOS ===== -->
+<section class="apropos" id="apropos">
+  <div class="wrap">
+    <div class="apropos-grid">
+      <div class="apropos-text reveal">
+        <p class="eyebrow">Adrien Marine</p>
+        <h2 class="h2" style="margin-bottom:22px">L'artisan derrière l'ancre.</h2>
+        <p>ANCRE Concept &amp; Finition, c'est Adrien Marine, artisan jointeur, plaquiste et peintre basé à Apt, en Vaucluse. Trois métiers complémentaires maîtrisés par un seul professionnel — de la pose du placo à la finition peinture.</p>
+        <p>Que ce soit pour un appartement à rénover, un chantier neuf ou une façade provençale à remettre en état, l'exigence reste la même : un travail ancré dans le métier, des finitions qui tiennent dans le temps.</p>
+        <p class="apropos-values">Jointement · Plaquisterie · Peinture</p>
+      </div>
+      <div class="apropos-visual reveal">
+        <svg viewBox="0 0 40 50" aria-hidden="true" fill="none" stroke="var(--ancre)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="20" cy="6" r="4.5"/>
+          <line x1="20" y1="10.5" x2="20" y2="44"/>
+          <line x1="9" y1="20" x2="31" y2="20"/>
+          <path d="M5 34 Q5 46 20 46 Q35 46 35 34"/>
+          <line x1="3" y1="36" x2="7.5" y2="32.5"/>
+          <line x1="37" y1="36" x2="32.5" y2="32.5"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TÉMOIGNAGES ===== -->
+<section class="temoignages motif" id="temoignages">
+  <div class="wrap">
+    <p class="eyebrow reveal">Avis clients</p>
+    <h2 class="h2 reveal">Ce qu'ils en disent.</h2>
+    <div class="avis">
+      <article class="avis-card reveal">
+        <p class="quote">« Travail de jointoiement impeccable sur notre rénovation complète. Adrien est rigoureux, ponctuel, et le résultat est parfait. Je recommande. »</p>
+        <p class="author">— Sébastien M., Apt (84)</p>
+        <p class="stars" aria-label="Note 5 sur 5">★★★★★</p>
+      </article>
+      <article class="avis-card reveal">
+        <p class="quote">« Intervention depuis Avignon pour notre chalet en montagne. Plaquisterie et peinture finies dans les délais. Sérieux et mobile, rare chez un indépendant. »</p>
+        <p class="author">— Carole T., Hautes-Alpes</p>
+        <p class="stars" aria-label="Note 5 sur 5">★★★★★</p>
+      </article>
+      <article class="avis-card reveal">
+        <p class="quote">« Façade en pierre enduite et peinte, rendu magnifique. Il connaît parfaitement les matériaux adaptés aux bâtiments anciens du Vaucluse. »</p>
+        <p class="author">— François B., Apt (84)</p>
+        <p class="stars" aria-label="Note 5 sur 5">★★★★★</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow reveal">Contact &amp; devis</p>
+    <h2 class="reveal">Parlons de votre chantier.</h2>
+    <p class="sub reveal">Devis gratuit · Vaucluse &amp; France</p>
+    <div class="contact-grid">
+
+      <div class="contact-info reveal">
+        <a href="tel:0750629901" class="tel-cta" aria-label="Appeler le 07 50 62 99 01">📱 07 50 62 99 01</a>
+        <ul>
+          <li>📍 Apt · Vaucluse (84100)</li>
+          <li>🗺️ France &amp; Europe sur demande</li>
+          <li>🌐 Site web : <a href="https://ancrejointeur.fr" target="_blank" rel="noopener noreferrer">ancrejointeur.fr</a></li>
+          <li>📸 Instagram : <a href="https://www.instagram.com/ancre_renov" target="_blank" rel="noopener noreferrer">@ancre_renov</a></li>
+        </ul>
+      </div>
+
+      <form class="contact-form reveal" action="#" method="post" aria-label="Formulaire de demande de devis">
+        <div class="form-row">
+          <input type="text" name="nom" placeholder="Prénom & Nom" aria-label="Prénom et nom" required>
+          <input type="tel" name="telephone" placeholder="Téléphone" aria-label="Téléphone" required>
+        </div>
+        <input type="email" name="email" placeholder="Email" aria-label="Email" required>
+        <select name="travaux" aria-label="Type de travaux" required>
+          <option value="" disabled selected>Type de travaux…</option>
+          <option>Jointement</option>
+          <option>Plaquisterie</option>
+          <option>Peinture intérieure</option>
+          <option>Peinture extérieure</option>
+          <option>Isolation</option>
+          <option>Chantier complet</option>
+          <option>Intervention hors région</option>
+          <option>Autre</option>
+        </select>
+        <input type="text" name="localisation" placeholder="Localisation du chantier (ville, département, pays)" aria-label="Localisation du chantier" required>
+        <textarea name="description" placeholder="Décrivez votre projet…" aria-label="Description du projet"></textarea>
+        <button type="submit" class="btn btn-rouille">Envoyer ma demande</button>
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <svg class="logo-svg" viewBox="0 0 40 50" aria-hidden="true" fill="none" stroke="var(--ancre)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="20" cy="6" r="4.5"/>
+        <line x1="20" y1="10.5" x2="20" y2="44"/>
+        <line x1="9" y1="20" x2="31" y2="20"/>
+        <path d="M5 34 Q5 46 20 46 Q35 46 35 34"/>
+        <line x1="3" y1="36" x2="7.5" y2="32.5"/>
+        <line x1="37" y1="36" x2="32.5" y2="32.5"/>
+      </svg>
+      <span class="footer-name">ANCRE</span>
+    </div>
+    <p>Concept &amp; Finition · Adrien Marine</p>
+    <div class="footer-links">
+      <a href="tel:0750629901" aria-label="Appeler le 07 50 62 99 01">07 50 62 99 01</a>
+      <a href="https://ancrejointeur.fr" target="_blank" rel="noopener noreferrer">ancrejointeur.fr</a>
+      <a href="https://www.instagram.com/ancre_renov" target="_blank" rel="noopener noreferrer">@ancre_renov</a>
+    </div>
+    <p>Apt, Vaucluse (84100) · France &amp; Europe</p>
+    <div class="copy">
+      <span>© 2026 ANCRE Concept &amp; Finition — Tous droits réservés</span>
+      <span class="made-by">Site réalisé par <a href="https://paymentflow.fr" target="_blank" rel="noopener noreferrer">Payment Flow</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== JS ===== -->
+<script>
+'use strict';
+(function(){
+  var header = document.getElementById('header');
+  var burger = document.getElementById('burger');
+  var mobileNav = document.getElementById('mobileNav');
+  var mobileClose = document.getElementById('mobileClose');
+
+  /* ----- Header scroll ----- */
+  function onScroll(){
+    if(window.scrollY > 70){ header.classList.add('scrolled'); }
+    else{ header.classList.remove('scrolled'); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ----- Mobile menu ----- */
+  function openMenu(){
+    mobileNav.classList.add('open');
+    mobileNav.setAttribute('aria-hidden','false');
+    burger.setAttribute('aria-expanded','true');
+  }
+  function closeMenu(){
+    mobileNav.classList.remove('open');
+    mobileNav.setAttribute('aria-hidden','true');
+    burger.setAttribute('aria-expanded','false');
+  }
+  burger.addEventListener('click', openMenu);
+  mobileClose.addEventListener('click', closeMenu);
+  mobileNav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+
+  /* ----- Scroll reveal (IntersectionObserver, stagger) ----- */
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var reveals = document.querySelectorAll('.reveal');
+  if(reduced || !('IntersectionObserver' in window)){
+    reveals.forEach(function(el){ el.classList.add('revealed'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var el = entry.target;
+          var siblings = Array.prototype.slice.call(el.parentNode.children).filter(function(c){return c.classList.contains('reveal');});
+          var idx = siblings.indexOf(el);
+          el.style.transitionDelay = (idx > 0 ? idx * 0.08 : 0) + 's';
+          el.classList.add('revealed');
+          io.unobserve(el);
+        }
+      });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    reveals.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ----- Scrollspy ----- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav a[href^="#"]'));
+  var sections = navLinks.map(function(l){ return document.querySelector(l.getAttribute('href')); }).filter(Boolean);
+  function spy(){
+    var pos = window.scrollY + 140;
+    var current = null;
+    sections.forEach(function(sec){ if(sec.offsetTop <= pos){ current = sec.id; } });
+    navLinks.forEach(function(l){
+      l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', spy, {passive:true});
+  spy();
+})();
+</script>
+</body>
+</html>
